@@ -93,7 +93,6 @@ body {
     --box-shadow-userinput: 0 .25rem 1.25rem hsl(var(--always-black) / 3.5%), 0 0 0 .5px hsla(var(--border-300) / .15);
     --box-shadow-userinput-hover: 0 0.25rem 1.25rem hsl(var(--always-black) / 3.5%), 0 0 0 0.5px hsla(var(--border-200) / 0.3);
     --box-shadow-userinput-focus: 0 0.25rem 1.25rem hsl(var(--always-black) / 7.5%), 0 0 0 0.5px hsla(var(--border-200) / 0.3);
-
     /* --- 字体变量 --- */
     --font-serif: "Anthropic Serif Web Text", Georgia, "Times New Roman", "Noto Serif SC";
     --font-sans: "Anthropic Sans Web Text", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -530,6 +529,41 @@ hr {
     border-radius: 0.5rem;
 }
 
+/* Mermaid 编辑态：让下方预览面板参与文档流，避免覆盖后续正文 */
+.md-fences.md-fences-advanced.md-focus[lang="mermaid"] {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    white-space: normal !important;
+}
+
+.md-fences.md-fences-advanced.md-focus[lang="mermaid"] .md-fences-adv-panel,
+.md-fences.md-fences-advanced.md-focus[lang="mermaid"] .md-diagram-panel,
+.md-fences.md-fences-advanced.md-focus[lang="mermaid"] .md-diagram-panel-preview {
+    position: relative !important;
+    display: block !important;
+    clear: both !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0.75rem 0 0 0 !important;
+    overflow: auto !important;
+    transform: none !important;
+}
+
+.md-fences.md-fences-advanced.md-focus[lang="mermaid"] .md-diagram-panel-preview > svg,
+.md-fences.md-fences-advanced.md-focus[lang="mermaid"] .md-diagram-panel-preview .mermaid-svg {
+    display: block !important;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
 /* 代码和代码行 */
 .CodeMirror-lines {
     font-size: 0.875rem;
@@ -743,7 +777,117 @@ blockquote ul {
     margin: 0 0 12px 0;
 }
 
-/* ---------- 6.10 公式块 ---------- */
+/* ---------- 6.10 GitHub 警告框 ---------- */
+
+#write .md-alert {
+    --alert-accent: var(--LOGO-color);
+    --alert-bg: rgb(255 255 255 / 42%);
+    --alert-bg-soft: rgb(255 255 255 / 18%);
+    --alert-wash: rgb(217 119 87 / 10%);
+    --alert-border: rgb(31 30 29 / 12%);
+    --alert-shadow: rgb(31 30 29 / 12%);
+
+    position: relative;
+    margin: 0.25rem 2rem 0.75rem 0.5rem;
+    padding: 0.72rem 0.9rem 0.78rem 1rem;
+    color: var(--font-color);
+    background:
+        linear-gradient(180deg, var(--alert-bg), var(--alert-bg-soft)),
+        linear-gradient(90deg, var(--alert-wash), transparent 32%);
+    border: 1px solid var(--alert-border);
+    border-left: 3px solid var(--alert-accent);
+    border-radius: 8px;
+    box-shadow: 0 12px 28px -26px var(--alert-shadow);
+}
+
+#write .md-alert-note {
+    --alert-accent: #5d7d9a;
+    --alert-bg: rgb(93 125 154 / 10%);
+    --alert-bg-soft: rgb(93 125 154 / 4%);
+    --alert-wash: rgb(93 125 154 / 12%);
+    --alert-border: rgb(93 125 154 / 22%);
+}
+
+#write .md-alert-tip {
+    --alert-accent: #688a5d;
+    --alert-bg: rgb(104 138 93 / 11%);
+    --alert-bg-soft: rgb(104 138 93 / 4%);
+    --alert-wash: rgb(104 138 93 / 13%);
+    --alert-border: rgb(104 138 93 / 24%);
+}
+
+#write .md-alert-important {
+    --alert-accent: #8b6f9d;
+    --alert-bg: rgb(139 111 157 / 11%);
+    --alert-bg-soft: rgb(139 111 157 / 4%);
+    --alert-wash: rgb(139 111 157 / 13%);
+    --alert-border: rgb(139 111 157 / 24%);
+}
+
+#write .md-alert-warning {
+    --alert-accent: #ad7837;
+    --alert-bg: rgb(173 120 55 / 12%);
+    --alert-bg-soft: rgb(173 120 55 / 4%);
+    --alert-wash: rgb(173 120 55 / 14%);
+    --alert-border: rgb(173 120 55 / 25%);
+}
+
+#write .md-alert-caution {
+    --alert-accent: #b45f51;
+    --alert-bg: rgb(180 95 81 / 11%);
+    --alert-bg-soft: rgb(180 95 81 / 4%);
+    --alert-wash: rgb(180 95 81 / 13%);
+    --alert-border: rgb(180 95 81 / 24%);
+}
+
+#write .md-alert-text {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0.35rem 0;
+    color: var(--alert-accent) !important;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+#write .md-alert-text svg {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+    margin-right: 0.42rem;
+    opacity: 0.95;
+}
+
+#write .md-alert-text-container::after {
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+#write .md-alert p {
+    padding: 0;
+    margin: 0.35rem 0 0 0;
+    line-height: 1.65;
+}
+
+#write .md-alert p:first-child {
+    margin-top: 0;
+}
+
+#write .md-alert ul,
+#write .md-alert ol {
+    padding: 0 0 0 1.25rem;
+    margin: 0.35rem 0 0 0;
+    gap: 0.12rem;
+}
+
+#write .md-alert code {
+    background-color: rgb(255 255 255 / 48%);
+    border-color: var(--alert-border);
+    color: inherit;
+}
+
+/* ---------- 6.11 公式块 ---------- */
 
 .md-rawblock-container.md-math-container > .MathJax {
     margin: 0 !important;
@@ -777,14 +921,19 @@ blockquote ul {
 }
 
 sup.md-footnote {
-    padding: 0.05rem 0.35rem !important;
+    padding: 0 0.18rem !important;
     color: #8a3f27 !important;
     background: #efe6d8 !important;
     border: 1px solid #d9775733 !important;
-    border-radius: 0.4rem !important;
+    border-radius: 0.25rem !important;
     font-family: var(--font-sans) !important;
-    font-size: 0.72em !important;
-    font-weight: 600;
+    font-size: 0.52em !important;
+    font-weight: 500;
+    line-height: 1.15 !important;
+    position: relative;
+    top: -0.36em;
+    margin-left: 0.04em;
+    vertical-align: super !important;
     transition:
         background-color 0.12s ease-out,
         border-color 0.12s ease-out,
@@ -869,6 +1018,11 @@ a {
 }
 
 a:hover {
+    color: #D97757;
+    text-decoration-color: #D97757;
+}
+
+#write a:hover {
     color: #D97757;
     text-decoration-color: #D97757;
 }
@@ -1070,6 +1224,16 @@ a:hover {
     border-bottom-color: var(--border-color-15);
 }
 
+/* 隐藏md后缀 */
+.file-list-item-file-ext-part {
+    display: none;
+}
+
+/* 激活项标题颜色 */
+.file-list-item.active {
+    color: #756420!important;
+}
+
 /* ---------- 7.6 文件树 ---------- */
 
 /* 隐藏md后缀 */
@@ -1227,9 +1391,14 @@ a:hover {
     color: var(--LOGO-color);
 }
 
+#file-library-tree .file-library-node[data-is-directory="true"] > .file-node-content .file-node-icon .fa-folder::before {
+    display: inline-block;
+    transform: translateY(0px);
+}
+
 /* 文件夹节点的小三角 */
 #file-library-tree .file-library-node[data-is-directory="true"] > .file-node-content .file-node-open-state i {
-    color: var(--LOGO-color);
+    color: #875d50;
 }
 
 /* 文件节点的图标 */
@@ -1982,8 +2151,52 @@ li > .outline-item:hover::before,
 /* ---------- macOS 交通灯避让 ---------- */
 .mac-os #typora-sidebar,
 .mac-seamless-mode #typora-sidebar {
+    top: 0 !important;
+    bottom: auto !important;
     margin-top: calc(var(--title-bar-height, 28px) + 15px) !important;
     height: calc(100% - var(--title-bar-height, 28px) - 30px) !important;
+    overflow: hidden !important;
+    contain: layout style !important;
+}
+
+.mac-os #typora-sidebar::after,
+.mac-seamless-mode #typora-sidebar::after {
+    content: none !important;
+}
+
+/* macOS 顶部已有交通灯避让，隐藏额外的 Files/Outline 胶囊控件以避免和筛选栏重叠 */
+.mac-os .info-panel-tab-wrapper,
+.mac-seamless-mode .info-panel-tab-wrapper {
+    display: none !important;
+}
+
+.mac-os #typora-sidebar .sidebar-content,
+.mac-seamless-mode #typora-sidebar .sidebar-content {
+    top: 24px !important;
+}
+
+.mac-os #file-library-search-panel,
+.mac-seamless-mode #file-library-search-panel {
+    top: 0 !important;
+}
+
+.mac-os #sidebar-content:hover #file-library,
+.mac-seamless-mode #sidebar-content:hover #file-library {
+    padding-bottom: 8px !important;
+}
+
+.mac-os.active-tab-outline #sidebar-content,
+.mac-seamless-mode.active-tab-outline #sidebar-content {
+    bottom: 15px !important;
+}
+
+.mac-os.active-tab-outline #outline-content,
+.mac-seamless-mode.active-tab-outline #outline-content {
+    height: 100% !important;
+    max-height: 100% !important;
+    padding-bottom: 22px !important;
+    box-sizing: border-box;
+    overflow: auto !important;
 }
 
 /* macOS 顶部已有交通灯避让，隐藏额外的 Files/Outline 胶囊控件以避免和筛选栏重叠 */
