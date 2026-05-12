@@ -4,7 +4,7 @@ param(
 
     [string]$ZipPath = "",
 
-    [string]$NotesPath = ".\更新内容.md",
+    [string]$NotesPath = "",
     [string]$Repo = "",
     [string]$AssetName = "",
     [switch]$DryRun
@@ -34,6 +34,19 @@ function Invoke-Checked {
     }
 
     Invoke-Expression $Command
+}
+
+function Test-NativeSuccess {
+    param([scriptblock]$Command)
+
+    $oldErrorActionPreference = $ErrorActionPreference
+    try {
+        $script:ErrorActionPreference = "Continue"
+        & $Command *> $null
+        return ($LASTEXITCODE -eq 0)
+    } finally {
+        $script:ErrorActionPreference = $oldErrorActionPreference
+    }
 }
 
 function Get-ReleaseNotes {
@@ -109,6 +122,11 @@ if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($repoRoot)) {
 
 Set-Location $repoRoot
 
+if ([string]::IsNullOrWhiteSpace($NotesPath)) {
+    $defaultNotesName = (-join ([char[]](0x66F4, 0x65B0, 0x5185, 0x5BB9))) + ".md"
+    $NotesPath = Join-Path $repoRoot $defaultNotesName
+}
+
 $versionNumber = $Version.Trim()
 if ($versionNumber.StartsWith("v", [System.StringComparison]::OrdinalIgnoreCase)) {
     $versionNumber = $versionNumber.Substring(1)
@@ -165,25 +183,13 @@ if ($LASTEXITCODE -ne 0) {
     throw "git fetch failed."
 }
 
-$releaseExists = $false
-try {
-    gh release view $tagName --repo $Repo *> $null
-    $releaseExists = $true
-} catch {
-    $releaseExists = $false
-}
+$releaseExists = Test-NativeSuccess { gh release view $tagName --repo $Repo }
 
 if ($releaseExists) {
     throw "Release already exists: $tagName"
 }
 
-$remoteTagExists = $false
-try {
-    git ls-remote --exit-code --tags origin "refs/tags/$tagName" *> $null
-    $remoteTagExists = $true
-} catch {
-    $remoteTagExists = $false
-}
+$remoteTagExists = Test-NativeSuccess { git ls-remote --exit-code --tags origin "refs/tags/$tagName" }
 
 if ($remoteTagExists) {
     throw "Remote tag already exists: $tagName"
