@@ -72,7 +72,7 @@ html, body {
 
     /* Inline code */
     --code-bg-color: #c2c0b60d;
-    --code-font-color: #fe8181;
+    --code-font-color: #f4a9a9;
     --code-border: #dedcd126;
 
     /* Blockquote */
@@ -81,6 +81,7 @@ html, body {
 
     /* Accent */
     --LOGO-color: #D97757;
+    --outline-hover-text-color: var(--font-color);
 
     /*--- Shadow ---*/
     --border-100: 51 16.5% 84.5%;
@@ -1081,6 +1082,7 @@ code, tt {
     border-color: var(--code-border);
     border-width: 0.5px;
     padding: 1px 0.25rem;
+    line-height: 21.6px;
 }
 
 /* =========================================
@@ -1598,7 +1600,13 @@ a:hover {
 
 /* Prevent child overflow & protect hover hit targets */
 .file-tree-node > .file-node-children { overflow: hidden; }
-.file-tree-node > .file-node-background { pointer-events: none; }
+.file-tree-node > .file-node-background {
+    pointer-events: none;
+    box-sizing: border-box;
+    width: min(calc(100% - 1rem), calc(var(--sidebar-width) - 1rem));
+    border-radius: 0.5rem;
+    margin: 0 0.5rem;
+}
 
 /* Staggered animation delays */
 .file-tree-node > .file-node-children > .file-library-node { --tree-delay: 0s; }
@@ -1654,18 +1662,14 @@ a:hover {
     --active-file-border-color: transparent;
 }
 
-/* Hover background */
-.file-tree-node:not(.file-node-root):has(> .file-node-content:hover) > .file-node-background {
-    background-color: var(--hover-color);
-    border-radius: 0.5rem;
-    margin: 0 0.5rem;
+/* Keep hover background transparent while preserving the active node highlight */
+.file-tree-node:not(.file-node-root):not(.active):has(> .file-node-content:hover) > .file-node-background {
+    background-color: transparent;
 }
 
 /* Active background */
 .file-tree-node.active > .file-node-background {
     background-color: var(--hover-color);
-    border-radius: 0.5rem;
-    margin: 0 0.5rem;
 }
 
 /* Text slide on hover */
@@ -1683,6 +1687,10 @@ a:hover {
     font-weight: var(--sidebar-font-weight);
     line-height: 22px;
     transition: color 0.15s ease-in-out;
+}
+
+.file-library-node.file-tree-node.file-library-file-node.active .file-node-title {
+    color: #D97757!important;
 }
 
 @font-face {
@@ -2131,6 +2139,7 @@ a:hover {
     padding: 7px 7px 7px 8px;
     font-size: 14px !important;
     line-height: 1.2;
+    transition: color 0.12s ease-out;
     overflow-wrap: normal;
     word-wrap: normal;
     word-break: keep-all;
@@ -2144,7 +2153,6 @@ a:hover {
     padding-left: 0 !important;
 }
 
-.outline-item > .outline-expander:hover + .outline-label,
 .outline-item-open > .outline-item > .outline-label {
     padding-left: 11px;
 }
@@ -2153,7 +2161,6 @@ a:hover {
     padding-left: 0 !important;
 }
 
-.outline-item-active > .outline-expander:hover + .outline-label,
 .outline-item-open > .outline-item-active > .outline-label {
     padding-left: 12px;
 }
@@ -2249,31 +2256,48 @@ a:hover {
 }
 
 /*--- Hover & Active States ---*/
-/* Shorten connector line on hover/active */
+/* Shorten connector line only for active nodes */
 li > .outline-item-active:before,
-.outline-item:hover::before,
 .outline-item-active > .outline-item::before {
     width: 7px !important;
 }
 
 li > .outline-item-active,
-li > .outline-item:hover,
 .outline-item-active > .outline-item {
     margin-left: 4px !important;
     padding-left: 7px !important;
 }
 
 li > .outline-item-active::before,
-li > .outline-item:hover::before,
 .outline-item-active > .outline-item::before {
     left: -7px !important;
 }
 
 .outline-item:hover,
-.outline-item:hover > .outline-label,
+.outline-item:hover > .outline-label {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+.outline-item:hover > .outline-label {
+    color: #D4B06D !important;
+    text-decoration: none !important;
+}
+
 .outline-item-active,
-.outline-item-active > .outline-label {
+.outline-item-active > .outline-label,
+.outline-item-active:hover,
+.outline-item-active:hover > .outline-label,
+.outline-item-active > .outline-item:hover,
+.outline-item-active > .outline-item:hover > .outline-label {
     background: var(--hover-color) !important;
+}
+
+.outline-item-active > .outline-label,
+.outline-item-active:hover > .outline-label,
+.outline-item-active > .outline-item > .outline-label,
+.outline-item-active > .outline-item:hover > .outline-label {
+    color: #D4B06D !important;
 }
 
 /*--- Search / Filter ---*/
