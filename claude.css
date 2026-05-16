@@ -9,7 +9,7 @@
 
 * {
     box-sizing: border-box;
-    outline-color: #D97757;
+    outline: none !important;
 }
 
 *,
@@ -81,6 +81,7 @@ body {
     --quote-boder: #1f1e1d1a;
 
     --LOGO-color: #D97757;
+    --focus-ring-color: #D97757;
     --outline-hover-text-color: #a94f2d;
 
     /* --- 阴影变量 --- */
@@ -529,7 +530,7 @@ span[md-inline="underline"] u {
     width: 13px !important;
     height: 13px !important;
     position: absolute;
-    top: 2.1px;
+    top: 2px;
     left: 2px;
     margin-left: -1.3em !important;
     margin-top: calc(1em - 12px) !important;

@@ -4,7 +4,7 @@
 
 * {
     box-sizing: border-box;
-    outline-color: #D97757;
+    outline: none !important;
 }
 
 *, :before, :after {
@@ -81,6 +81,7 @@ html, body {
 
     /* Accent */
     --LOGO-color: #D97757;
+    --focus-ring-color: #D97757;
     --outline-hover-text-color: var(--font-color);
 
     /*--- Shadow ---*/
@@ -546,7 +547,7 @@ span[md-inline="underline"] u {
     width: 13px !important;
     height: 13px !important;
     position: absolute;
-    top: 2.1px;
+    top: 2px;
     left: 2px;
     margin-left: -1.3em !important;
     margin-top: calc(1em - 12px) !important;
@@ -1243,6 +1244,11 @@ blockquote ol, blockquote ul {
     margin: 0 !important;
 }
 
+.md-math-block {
+    --select-text-bg-color: #3a2f2b;
+    --select-text-font-color: #FAF9F5;
+}
+
 .md-math-block .md-math-container {
     transition: background-color 0.15s ease-in-out !important;
 }
@@ -1250,6 +1256,21 @@ blockquote ol, blockquote ul {
 .md-math-block:hover .md-math-container {
     background-color: var(--hover-color) !important;
     border-radius: 8px;
+}
+
+.md-math-block ::selection,
+.md-math-container ::selection,
+.md-math-block .MathJax ::selection,
+.md-math-block mjx-container ::selection {
+    background: #3a2f2b;
+    color: #FAF9F5;
+}
+
+.md-math-block .CodeMirror-selected,
+.md-math-block .CodeMirror-selectedtext,
+.md-math-block .md-rawblock-input::selection {
+    background-color: #3a2f2b !important;
+    color: #FAF9F5 !important;
 }
 
 .md-rawblock-control.md-rawblock-before,
