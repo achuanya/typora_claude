@@ -205,6 +205,10 @@ body {
     border-radius: 4px!important;
 }
 
+.pane::-webkit-scrollbar {
+    display: none;
+}
+
 /* =========================================
    5. 全局排版与色调覆盖
    ========================================= */
@@ -309,6 +313,11 @@ body {
     .ty-show-word-count #footer-word-count-info.dropdown-menu {
         animation: none;
     }
+}
+
+.context-menu.dropdown-menu>.active>a, .context-menu.dropdown-menu>li>a:hover, .menu-style-btn.active {
+    background: transparent!important;
+    color: #6B4E2E!important;
 }
 
 /* 隐藏右键菜单栏的内容分割线 */
@@ -1307,6 +1316,11 @@ a:hover {
     width: calc(var(--sidebar-width) - 15px) !important;
 }
 
+/* 缩短 Typora 默认的超远隐藏位移，保留侧边栏收起动画。 */
+.typora-node:not(.pin-outline) #typora-sidebar {
+    left: calc(0px - var(--sidebar-width) - 24px);
+}
+
 /* 调整底部菜单栏的圆角以适配悬浮面板 */
 #ty-sidebar-footer {
     border-bottom-left-radius: 15px;
@@ -1395,7 +1409,23 @@ a:hover {
 }
 
 #sidebar-files-menu {
-    background: var(--file-search-list-bg-color) !important;
+    background: color-mix(
+        in srgb,
+        var(--file-search-list-bg-color) 58%,
+        transparent
+    ) !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+
+    backdrop-filter: blur(24px) saturate(1.45) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(1.45) !important;
+
+    box-shadow:
+        0 10px 36px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.10) !important;
+
+    border-radius: 16px !important;
 }
 
 #sidebar-new-file-btn {
@@ -1969,6 +1999,13 @@ a:hover {
 
 /* ---------- 7.9 侧边栏的其他样式 ---------- */
 
+/* 收起动画期间隐藏侧边栏内部滚动条，避免状态类切换时闪现。 */
+.typora-node:not(.pin-outline) #typora-sidebar ::-webkit-scrollbar-thumb:vertical,
+.typora-node:not(.pin-outline) #typora-sidebar ::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
 /* 消除文件树节点在点击时的默认虚线框 */
 .file-library-node:focus,
 .file-library-node:active,
@@ -2057,7 +2094,7 @@ a:hover {
    ========================================= */
 
 #outline-content:empty::after {
-    content: "暂无大纲"!important;
+    content: "没有大纲哦~"!important;
     display: block;
     padding: 16px 12px;
     color: rgba(48, 48, 46, 0.45);
