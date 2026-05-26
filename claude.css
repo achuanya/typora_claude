@@ -2095,7 +2095,7 @@ a:hover {
 }
 
 #file-library-tree
-.file-tree-node.file-node-expanded:not(.file-node-root):not(.file-library-file-node)
+.file-tree-node.file-node-expanded:not(.file-node-root):not(.file-library-file-node):has(.file-library-file-node.active)
 > .file-node-content
 > .file-node-title {
     color: var(--claude-folder-expanded-title-color) !important;
