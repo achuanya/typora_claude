@@ -1802,11 +1802,11 @@ a:hover {
 }
 
 #typora-sidebar .file-list-item:hover {
-    background-color: var(--hover-color);
+    background-color: rgba(0, 0, 0, 0.02) !important;
 }
 
 #typora-sidebar .file-list-item.active {
-    background-color: var(--hover-color);
+    background-color: rgba(0, 0, 0, 0.04) !important;
 }
 
 /* 文件列表内容文字 */
@@ -1824,9 +1824,9 @@ a:hover {
     display: none;
 }
 
-/* 激活项标题颜色 */
+/* 激活项标题颜色（列表视图保持默认文字色，不转为粉红） */
 .file-list-item.active {
-    color: var(--code-font-color) !important;
+    color: var(--text-color) !important;
     transition: none !important;
 }
 

@@ -1,11 +1,12 @@
 - # Typora Lite
 
+  
+  
   一个为专注阅读、长文写作和 Markdown 编辑设计的 Typora 衬线主题
   
   本主题 Fork 自开源项目：[blaxisomu/typora_claude](https://github.com/blaxisomu/typora_claude)
   
   我在原版的基础上，进行了瘦身，尽量保证在写作的过程中不受主题的视觉干扰
-  
   
   
   ## 使用方法

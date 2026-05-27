@@ -1791,11 +1791,11 @@ a:hover {
 }
 
 #typora-sidebar .file-list-item:hover {
-    background-color: var(--hover-color);
+    background-color: rgba(255, 255, 255, 0.03) !important;
 }
 
 #typora-sidebar .file-list-item.active {
-    background-color: var(--hover-color);
+    background-color: rgba(255, 255, 255, 0.06) !important;
 }
 
 .file-list-item-summary {
@@ -1807,7 +1807,7 @@ a:hover {
 }
 
 .file-list-item.active {
-    color: var(--code-font-color) !important;
+    color: var(--text-color) !important;
     transition: none !important;
 }
 
