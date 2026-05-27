@@ -1208,52 +1208,39 @@ sup.md-footnote:hover {
     text-align: left !important;
 }
 
-/*--- Syntax Highlighting ---*/
-.md-fences .CodeMirror-linenumber,
-.md-fences .cm-comment,
-.md-fences .cm-meta {
-    color: #818898 !important;
+/*--- Duo-Chrome Syntax: Sakura Pink Hero + Unified Body + Muted BG ---*/
+.md-fences .CodeMirror-linenumber {
+    color: var(--pre-inputfont-color) !important;
+}
+
+.md-fences .cm-comment {
+    color: var(--text-color) !important;
+    opacity: 0.45;
 }
 
 .md-fences .cm-keyword,
-.md-fences .cm-builtin {
-    color: #cc7bf4 !important;
-}
-
-.md-fences .cm-string,
-.md-fences .cm-string-2 {
-    color: #9be963 !important;
-}
-
-.md-fences .cm-number {
-    color: #5eeded !important;
-}
-
+.md-fences .cm-builtin,
 .md-fences .cm-tag,
-.md-fences .cm-attribute,
-.md-fences .cm-property,
-.md-fences .cm-qualifier,
+.md-fences .cm-header,
 .md-fences .cm-link {
-    color: #f47b85 !important;
+    color: var(--code-font-color) !important;
 }
 
-.md-fences .cm-operator,
-.md-fences .cm-atom,
-.md-fences .cm-variable {
-    color: #eaecf0 !important;
-}
-
-.md-fences .cm-def {
-    color: #0051c2;
-}
-
+.md-fences .cm-variable,
 .md-fences .cm-variable-2,
-.md-fences .cm-variable-3 {
-    color: #fbab60 !important;
-}
-
+.md-fences .cm-variable-3,
+.md-fences .cm-property,
+.md-fences .cm-operator,
+.md-fences .cm-number,
+.md-fences .cm-atom,
+.md-fences .cm-string,
+.md-fences .cm-string-2,
+.md-fences .cm-meta,
+.md-fences .cm-def,
+.md-fences .cm-attribute,
+.md-fences .cm-qualifier,
 .md-fences .cm-bracket {
-    color: #eaecf0 !important;
+    color: var(--text-color) !important;
 }
 
 /* =========================================
