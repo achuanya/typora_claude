@@ -1458,19 +1458,20 @@ mjx-container {
 }
 
 a {
-    color: var(--font-color);
-    text-decoration-color: var(--font-color);
-    text-underline-offset: 2px;
+    color: #D4B06D;
+    text-decoration: none;
 }
 
 a:hover {
-    color: #E6987D;
-    text-decoration-color: #E6987D;
+    color: #D4B06D;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 #write a:hover {
     color: #D4B06D;
-    text-decoration-color: #D4B06D;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 /* =========================================

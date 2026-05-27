@@ -1419,19 +1419,20 @@ mjx-container {
 /* ---------- 6.12 链接（下划线） ---------- */
 
 a {
-    color: var(--font-color);
-    text-decoration-color: var(--font-color);
-    text-underline-offset: 2px;
+    color: #D4B06D;
+    text-decoration: none;
 }
 
 a:hover {
-    color: #D97757;
-    text-decoration-color: #D97757;
+    color: #D4B06D;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 #write a:hover {
-    color: #D97757;
-    text-decoration-color: #D97757;
+    color: #D4B06D;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 /* =========================================
