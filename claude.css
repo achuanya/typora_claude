@@ -1829,71 +1829,19 @@ a:hover {
     display: none!important;
 }
 
-/* ----- 节点展开动画 ----- */
-
-@keyframes treeItemIn {
-    0% {
-        opacity: 0;
-        transform: translate3d(-12px, 0, 0);
-    }
-    70% {
-        opacity: 1;
-        transform: translate3d(2px, 0, 0);
-    }
-    100% {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-/* 防止子节点动画溢出 */
-.file-tree-node > .file-node-children {
-    overflow: hidden;
-}
-
-/* 鼠标命中层穿透，保护 hover 和点击 */
-/* .file-tree-node > .file-node-background {
-    pointer-events: none;
-    box-sizing: border-box;
-    width: min(calc(100% - 0.5rem), calc(var(--sidebar-width) - 0.5rem));
-    border-radius: 0.5rem;
-    margin: 0 0.5rem;
-} */
-
-/* 分配接踵延迟变量 */
-.file-tree-node > .file-node-children > .file-library-node {
-    --tree-delay: 0s;
-}
-
-.file-tree-node.file-node-expanded:not(.file-node-root) > .file-node-children > .file-library-node:nth-of-type(1)  { --tree-delay: 0.00s; }
-.file-tree-node.file-node-expanded:not(.file-node-root) > .file-node-children > .file-library-node:nth-of-type(2)  { --tree-delay: 0.04s; }
-.file-tree-node.file-node-expanded:not(.file-node-root) > .file-node-children > .file-library-node:nth-of-type(3)  { --tree-delay: 0.08s; }
-.file-tree-node.file-node-expanded:not(.file-node-root) > .file-node-children > .file-library-node:nth-of-type(4)  { --tree-delay: 0.12s; }
-.file-tree-node.file-node-expanded:not(.file-node-root) > .file-node-children > .file-library-node:nth-of-type(5)  { --tree-delay: 0.16s; }
-.file-tree-node.file-node-expanded:not(.file-node-root) > .file-node-children > .file-library-node:nth-of-type(6)  { --tree-delay: 0.20s; }
-.file-tree-node.file-node-expanded:not(.file-node-root) > .file-node-children > .file-library-node:nth-of-type(7)  { --tree-delay: 0.24s; }
-.file-tree-node.file-node-expanded:not(.file-node-root) > .file-node-children > .file-library-node:nth-of-type(8)  { --tree-delay: 0.28s; }
-.file-tree-node.file-node-expanded:not(.file-node-root) > .file-node-children > .file-library-node:nth-of-type(9)  { --tree-delay: 0.32s; }
-.file-tree-node.file-node-expanded:not(.file-node-root) > .file-node-children > .file-library-node:nth-of-type(10) { --tree-delay: 0.36s; }
-.file-tree-node.file-node-expanded:not(.file-node-root) > .file-node-children > .file-library-node:nth-of-type(n+11) { --tree-delay: 0.42s; }
-
-/* 基础滑入动画（所有子节点默认生效） */
+/* Instant expand — no animation */
 .file-tree-node.file-node-expanded:not(.file-node-root)
 > .file-node-children
 > .file-library-node
 > .file-node-content
-> :is(.file-node-open-state, .file-node-icon, .file-node-title, .file-tree-rename-div) {
-    animation: treeItemIn 0.35s ease-out both;
-    animation-delay: var(--tree-delay);
-}
-
-/* 核心修复：防止母节点首次展开时闪烁 */
+> :is(.file-node-open-state, .file-node-icon, .file-node-title, .file-tree-rename-div),
 .file-tree-node.file-node-expanded:not(.file-node-root)
 > .file-node-children
 > .file-library-node.file-node-expanded
 > .file-node-content
 > :is(.file-node-open-state, .file-node-icon, .file-node-title, .file-tree-rename-div) {
-    animation-duration: 0.001s !important;
+    animation: none !important;
+    animation-duration: 0s !important;
     animation-delay: 0s !important;
 }
 
@@ -1943,22 +1891,15 @@ a:hover {
     word-break: break-all;
 }
 
-/* 文字位移（修复版 - 使用独立 translate） */
-#file-library-tree .file-library-file-node > .file-node-content .file-node-icon,
-.file-node-content .file-node-title {
-    transition: translate 0.25s ease-out;
-}
-
+/* Instant hover — no transition */
 #file-library-tree .file-library-file-node > .file-node-content:hover .file-node-icon,
 .file-tree-node:not(.file-node-root) > .file-node-content:hover .file-node-title {
-    translate: 4px 0;
     color: #D4B06D;
 }
 
 /* 节点文字的字重 */
 .file-node-content {
     font-weight: var(--sidebar-font-weight);
-    transition: color 0.15s ease-in-out;
 }
 
 /* 文件树行高 */
