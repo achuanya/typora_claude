@@ -50,6 +50,38 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: "SF Mono";
+    src: url("./lite-fonts/SFMono-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SF Mono";
+    src: url("./lite-fonts/SFMono-Bold.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SF Mono";
+    src: url("./lite-fonts/SFMono-RegularItalic.otf") format("opentype");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "SF Mono";
+    src: url("./lite-fonts/SFMono-BoldItalic.otf") format("opentype");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
 /* @font-face {
     font-family: "UnifrakturMaguntia";
     src: url("./claude-fonts/UnifrakturMaguntia-Regular.ttf") format("truetype");
@@ -172,7 +204,7 @@ table {
     /*--- Font ---*/
     --font-serif: "Anthropic Serif Web Text", Georgia, "Times New Roman", "Noto Serif SC";
     --font-sans: "Anthropic Sans Web Text", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --font-mono: "Anthropic Mono Variable", ui-monospace, monospace;
+    --font-mono: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
     --font-weight: 360;
     --font-strong: 530;
     --pre-inputfont-weight: 400;
@@ -921,6 +953,10 @@ hr {
 /* =========================================
    Code Blocks
    ========================================= */
+
+code, tt, .md-fences, pre, .CodeMirror, .CodeMirror-lines {
+    font-family: var(--font-mono) !important;
+}
 
 /*--- Container ---*/
 .CodeMirror-gutter-filler,
