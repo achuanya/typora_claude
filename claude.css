@@ -1770,7 +1770,7 @@ a:hover {
 
 /* 激活项标题颜色 */
 .file-list-item.active {
-    color: #756420!important;
+    color: #D4B06D!important;
 }
 
 #typora-sidebar #sidebar-loading-template {
@@ -1952,6 +1952,7 @@ a:hover {
 #file-library-tree .file-library-file-node > .file-node-content:hover .file-node-icon,
 .file-tree-node:not(.file-node-root) > .file-node-content:hover .file-node-title {
     translate: 4px 0;
+    color: #D4B06D;
 }
 
 /* 节点文字的字重 */
@@ -1967,7 +1968,7 @@ a:hover {
 
 /* 文件树节点激活项的字体颜色 */
 .file-library-node.file-tree-node.file-library-file-node.active .file-node-title {
-    color: #D97757!important;
+    color: #D4B06D!important;
 }
 
 @font-face {
@@ -2007,7 +2008,7 @@ a:hover {
 > .file-tree-node.file-node-root
 > .file-node-children
 > .file-tree-node {
-    --claude-folder-expanded-title-color: #D97757;
+    --claude-folder-expanded-title-color: #D4B06D;
 }
 
 #file-library-tree
@@ -2016,7 +2017,7 @@ a:hover {
 > .file-tree-node
 > .file-node-content
 > .file-node-icon.fa-folder::before {
-    color: #D97757 !important;
+    color: #D4B06D !important;
 }
 
 /* 第 2 层文件夹图标 */
@@ -2026,7 +2027,7 @@ a:hover {
 > .file-tree-node
 > .file-node-children
 > .file-tree-node {
-    --claude-folder-expanded-title-color: #C9826F;
+    --claude-folder-expanded-title-color: #D4B06D;
 }
 
 #file-library-tree
@@ -2037,7 +2038,7 @@ a:hover {
 > .file-tree-node
 > .file-node-content
 > .file-node-icon.fa-folder::before {
-    color: #C9826F !important;
+    color: #D4B06D !important;
 }
 
 /* 第 3 层文件夹图标 */
@@ -2049,7 +2050,7 @@ a:hover {
 > .file-tree-node
 > .file-node-children
 > .file-tree-node {
-    --claude-folder-expanded-title-color: #A98E82;
+    --claude-folder-expanded-title-color: #D4B06D;
 }
 
 #file-library-tree
@@ -2062,7 +2063,7 @@ a:hover {
 > .file-tree-node
 > .file-node-content
 > .file-node-icon.fa-folder::before {
-    color: #A98E82 !important;
+    color: #D4B06D !important;
 }
 
 /* 第 4 层及更深文件夹图标 */
@@ -2076,7 +2077,7 @@ a:hover {
 > .file-tree-node
 > .file-node-children
 .file-tree-node {
-    --claude-folder-expanded-title-color: #8F8A83;
+    --claude-folder-expanded-title-color: #D4B06D;
 }
 
 #file-library-tree
@@ -2091,7 +2092,7 @@ a:hover {
 .file-tree-node
 > .file-node-content
 > .file-node-icon.fa-folder::before {
-    color: #8F8A83 !important;
+    color: #D4B06D !important;
 }
 
 #file-library-tree
@@ -2139,7 +2140,7 @@ a:hover {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background-color: var(--LOGO-color);
+    background-color: #D4B06D;
 }
 
 /* ---------- 7.8 搜索 ---------- */
@@ -2606,7 +2607,7 @@ a:hover {
 }
 
 .outline-item:hover > .outline-label {
-    color: #D97757 !important;
+    color: #D4B06D !important;
     text-decoration: none !important;
 }
 
@@ -2624,7 +2625,7 @@ a:hover {
 .outline-item-active:hover > .outline-label,
 .outline-item-active > .outline-item > .outline-label,
 .outline-item-active > .outline-item:hover > .outline-label {
-    color: #D97757 !important;
+    color: #D4B06D !important;
 }
 
 /* ----- 过滤/搜索大纲时的表现 ----- */

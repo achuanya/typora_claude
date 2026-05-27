@@ -1752,7 +1752,7 @@ a:hover {
 }
 
 .file-list-item.active {
-    color: #fff4c8!important;
+    color: #D4B06D!important;
 }
 
 #typora-sidebar #sidebar-loading-template {
@@ -1915,6 +1915,7 @@ a:hover {
 #file-library-tree .file-library-file-node > .file-node-content:hover .file-node-icon,
 .file-tree-node:not(.file-node-root) > .file-node-content:hover .file-node-title {
     translate: 4px 0;
+    color: #D4B06D;
 }
 
 .file-node-content {
@@ -1924,7 +1925,7 @@ a:hover {
 }
 
 .file-library-node.file-tree-node.file-library-file-node.active .file-node-title {
-    color: #D97757!important;
+    color: #D4B06D!important;
 }
 
 @font-face {
@@ -1959,7 +1960,7 @@ a:hover {
 > .file-tree-node.file-node-root
 > .file-node-children
 > .file-tree-node {
-    --claude-folder-expanded-title-color: #D97757;
+    --claude-folder-expanded-title-color: #D4B06D;
 }
 
 #file-library-tree
@@ -1968,7 +1969,7 @@ a:hover {
 > .file-tree-node
 > .file-node-content
 > .file-node-icon.fa-folder::before {
-    color: #D97757 !important;
+    color: #D4B06D !important;
 }
 
 /* 第 2 层文件夹图标 */
@@ -1978,7 +1979,7 @@ a:hover {
 > .file-tree-node
 > .file-node-children
 > .file-tree-node {
-    --claude-folder-expanded-title-color: #C9826F;
+    --claude-folder-expanded-title-color: #D4B06D;
 }
 
 #file-library-tree
@@ -1989,7 +1990,7 @@ a:hover {
 > .file-tree-node
 > .file-node-content
 > .file-node-icon.fa-folder::before {
-    color: #C9826F !important;
+    color: #D4B06D !important;
 }
 
 /* 第 3 层文件夹图标 */
@@ -2001,7 +2002,7 @@ a:hover {
 > .file-tree-node
 > .file-node-children
 > .file-tree-node {
-    --claude-folder-expanded-title-color: #A98E82;
+    --claude-folder-expanded-title-color: #D4B06D;
 }
 
 #file-library-tree
@@ -2014,7 +2015,7 @@ a:hover {
 > .file-tree-node
 > .file-node-content
 > .file-node-icon.fa-folder::before {
-    color: #A98E82 !important;
+    color: #D4B06D !important;
 }
 
 /* 第 4 层及更深文件夹图标 */
@@ -2028,7 +2029,7 @@ a:hover {
 > .file-tree-node
 > .file-node-children
 .file-tree-node {
-    --claude-folder-expanded-title-color: #8F8A83;
+    --claude-folder-expanded-title-color: #D4B06D;
 }
 
 #file-library-tree
@@ -2043,7 +2044,7 @@ a:hover {
 .file-tree-node
 > .file-node-content
 > .file-node-icon.fa-folder::before {
-    color: #8F8A83 !important;
+    color: #D4B06D !important;
 }
 
 #file-library-tree
@@ -2054,7 +2055,7 @@ a:hover {
 }
 
 .fa-folder:before {
-    color: var(--LOGO-color);
+    color: #D4B06D;
 }
 
 #file-library-tree .file-library-node[data-is-directory="true"] > .file-node-content .file-node-icon .fa-folder::before {
@@ -2091,7 +2092,7 @@ a:hover {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background-color: var(--LOGO-color);
+    background-color: #D4B06D;
 }
 
 /*--- Search ---*/
