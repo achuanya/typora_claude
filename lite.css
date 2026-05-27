@@ -575,6 +575,7 @@ li.folder-menu-item.file-action-item.selected-folder-menu-item:hover > a {
 
 #write strong {
     font-weight: var(--font-strong);
+    color: var(--code-font-color) !important;
 }
 
 /* 修改普通文本的选中高亮颜色 */
@@ -1440,6 +1441,17 @@ a:hover {
     text-decoration: underline;
     text-underline-offset: 2px;
     transition: none !important;
+}
+
+/* ---------- 6.13 图片（占位/加载失败） ---------- */
+
+#write .md-image.md-img-error {
+    color: var(--code-font-color) !important;
+}
+
+#write .md-image.md-img-error .md-meta,
+#write .md-image.md-img-error .md-meta * {
+    color: var(--code-font-color) !important;
 }
 
 /* =========================================

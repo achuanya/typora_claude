@@ -610,7 +610,7 @@ li.folder-menu-item.file-action-item.selected-folder-menu-item:hover > a {
 
 #write strong {
     font-weight: var(--font-strong);
-    color: #E6987D;
+    color: var(--code-font-color) !important;
 }
 
 /*--- Hide bold/italic markdown markers ---*/
@@ -1479,6 +1479,17 @@ a:hover {
     text-decoration: underline;
     text-underline-offset: 2px;
     transition: none !important;
+}
+
+/* ---------- 6.13 Image Error / Placeholder ---------- */
+
+#write .md-image.md-img-error {
+    color: var(--code-font-color) !important;
+}
+
+#write .md-image.md-img-error .md-meta,
+#write .md-image.md-img-error .md-meta * {
+    color: var(--code-font-color) !important;
 }
 
 /* =========================================
