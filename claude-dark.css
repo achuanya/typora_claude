@@ -1892,9 +1892,9 @@ a:hover {
     background-color: transparent;
 }
 
-/* 节点激活背景替换单独背景层 */
+/* 节点激活背景替换单独背景层（移除背景色，仅保留文字颜色变化） */
 .file-library-node.file-library-file-node.active > .file-node-content {
-    background: var(--hover-color);
+    background: transparent;
     border-radius: 8px;
 }
 
